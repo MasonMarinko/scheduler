@@ -1,3 +1,4 @@
+var tasks= {};
 var topTimeEl = document.querySelector("#currentDay");
 var currentTime = moment();
 
