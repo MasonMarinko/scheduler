@@ -83,8 +83,23 @@ textarea{
 
 ul {
   list-style: none;
+  height: 79px;
+  width: 760px;
+  padding-bottom: 0;
+  padding-left: 0;
+  margin-bottom: 0;
 }
 
 svg {
   display: none;
+}
+
+.listItem {
+  height: 79px;
+  width: 760px  
+}
+
+input {
+  height: 79px;
+  width: 760px
 }
