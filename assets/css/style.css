@@ -90,6 +90,10 @@ ul {
   margin-bottom: 0;
 }
 
+div {
+  padding-right: 0;
+}
+
 svg {
   display: none;
 }
@@ -101,5 +105,6 @@ svg {
 
 input {
   height: 79px;
-  width: 760px
+  background: transparent;
+  border: none;
 }
