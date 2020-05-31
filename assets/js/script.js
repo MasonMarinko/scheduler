@@ -2,7 +2,6 @@ const m = moment();
 var tasks= {};
 var topTimeEl = document.querySelector("#currentDay");
 
-
 topTimeEl.textContent = m.format("dddd MMM DD, YYYY")
 
 // due date was clicked
@@ -20,6 +19,12 @@ $(".list-group").on('click', "ul",  function () {
     $(this).replaceWith(taskInput);
   });
 
+  $(".saveBtn").on("click", function () {
+    // get current text
+    var userInput = $(this).siblings(".textarea").children().val()
+    
+      console.log(userInput)
+    })
 
   var timeAudit9 = function() {
     var this_row = $(".hour-9")
@@ -154,79 +159,10 @@ $(".list-group").on('click', "ul",  function () {
       $(".hour-17-color").addClass("present")
     }
   }
-
   
+  timeAudit9();
 
-  $(".saveBtn").on("click", function () {
-    // get current text
-    var userInput = $(this).siblings(".textarea").children().val()
-    
-      console.log(userInput)
-      timeAudit9();
-    })
+  setInterval(function () {
+    timeAudit9()
+  }, (1000 * 60) * 30);
 
-
-
-
-
-
-
-
-
-
-
-
-    
-    // taskInput.on({
-    //   onClose: function () {
-    //     // when calendar is closed, force a "change" event on the 'taskInput'
-    //     $(this).trigger("change");
-    //     console.log(this)
-    //   }
-    // });
-  
-    // automatically bring up
-    // taskInput.trigger("focus");
-
-
-
-
-
-
-  // value of due userInput was changed
-
-  
-    // // get the parent ul's id attribute
-    // var status = $(this)
-    //   .closest(".list-group")
-    //   .attr("id")
-    //   .replace("list-", "");
-  
-    // // get the task's position in the list of other li elements
-    // var index = $(this)
-    //   .closest(".listItem")
-    //   .index();
-  
-    // // update task in array and re-save to localstorage
-    // tasks[status][index].userInput = userInput;
-    // saveTasks();
-  
-    // // recreate span element with bootstrap classes
-    // var taskSpan = $("<li>")
-    //   .addClass("badge badge-primary badge-pill")
-    //   .text(date);
-  
-    // // replace input with span element
-    // $(this).replaceWith(taskSpan);
-  
-    // // Pass task's <li> element into auditTask() to check new due date
-    // auditTask($(taskSpan).closest(".listItem"));
-
-
-
-
-
-
-//   var saveTasks = function () {
-//     localStorage.setItem("tasks", JSON.stringify(tasks));
-//   };

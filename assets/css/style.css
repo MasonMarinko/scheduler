@@ -108,3 +108,7 @@ input {
   background: transparent;
   border: none;
 }
+
+.list-group {
+  padding-right: 0;
+}
