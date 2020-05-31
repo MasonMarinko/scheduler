@@ -1,6 +1,7 @@
 const m = moment();
 var tasks= {};
 var topTimeEl = document.querySelector("#currentDay");
+var list = JSON.parse(localStorage.getItem('toDoTask')) || [];
 
 topTimeEl.textContent = m.format("dddd MMM DD, YYYY")
 
@@ -17,14 +18,92 @@ $(".list-group").on('click', "ul",  function () {
 
     // swap out elements
     $(this).replaceWith(taskInput);
+
   });
 
-  $(".saveBtn").on("click", function () {
-    // get current text
-    var userInput = $(this).siblings(".textarea").children().val()
+
+
+
+
+
+// ===============Saving INFORMATION==================//\
+
+
+$('.saveBtn').on('click', function(event) {
+  event.preventDefault();
+  debugger
+  // Get the to-do "value" from the textbox and store it as a variable using `.val()` and `.trim()`
+  var toDoTask = $(this)
+  .siblings(".textarea")
+  .children()
+  .val();
+  // Add the new to-do to our local 'list' variable
+  list.push(toDoTask);
+
+  // Update the to-dos on the page
+  renderTodos(list);
+
+  // Save the to-dos into localStorage
+  // We need to use JSON.stringify to turn the list from an array into a string
+  localStorage.setItem('toDoTask', JSON.stringify(list));
+
+});
+
+
+
+
+
+
+
+
+
+
+
+// ===============RECALLING INFORMATION==================//
+
+
+ 
+    function renderTodos(list) {
+      debugger
+      $('#to-dos').empty();
+
+
+      for (var i = 0; i < list.length; i++) {
+
+        var toDoItem = $('#list-toDo');
+        toDoItem.text(list[i]);
+        
+      }
+    }
+
+
+
+renderTodos(list);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-      console.log(userInput)
-    })
 
   var timeAudit9 = function() {
     var this_row = $(".hour-9")
@@ -158,11 +237,12 @@ $(".list-group").on('click', "ul",  function () {
     } else if (targetRow === momentInt) {
       $(".hour-17-color").addClass("present")
     }
+    
   }
   
-  timeAudit9();
+  // timeAudit9();
 
-  setInterval(function () {
-    timeAudit9()
-  }, (1000 * 60) * 30);
+  // setInterval(function () {
+  //   timeAudit9()
+  // }, (1000 * 60) * 30);
 
