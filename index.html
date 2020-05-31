@@ -7,8 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Staatliches&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Staatliches&display=swap">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Work Day Scheduler</title>
 </head>
@@ -19,14 +21,14 @@
     <p class="lead">A simple calendar app for scheduling your work day</p>
     <p id="currentDay" class="lead"></p>
   </header>
-  <div class="container">
+  <div id= "scheduleTotal" class="container">
     <div class="row">
       <div class="col-1">
       </div>
-      <div class="col-1 hour date-9">
-          9AM
+      <div class="col-1 hour hour-9" data-hour = "9">
+        9AM
       </div>
-      <div class="list-group card col-8 textarea">
+      <div class="list-group card col-8 textarea hour-9-color">
         <ul id="list-toDo" class="list-item list-group-flush">
         </ul>
       </div>
@@ -39,10 +41,10 @@
     <div class="row">
       <div class="col-1">
       </div>
-      <div class="col-1 hour">
-          10AM
+      <div class="col-1 hour hour-10" data-hour="10">
+        10AM
       </div>
-      <div class="list-group card col-8 textarea past">
+      <div class="list-group card col-8 textarea past hour-10-color">
         <ul id="textarea list-toDo" class="list-item">
         </ul>
       </div>
@@ -55,10 +57,10 @@
     <div class="row">
       <div class="col-1">
       </div>
-      <div class="col-1 hour">
-          11AM
+      <div class="col-1 hour hour-11" data-hour="11">
+        11AM
       </div>
-      <div class="list-group card col-8 textarea past">
+      <div class="list-group card col-8 textarea past hour-11-color">
         <ul id="list-toDo" class="list-item">
         </ul>
       </div>
@@ -71,10 +73,10 @@
     <div class="row">
       <div class="col-1">
       </div>
-      <div class="col-1 hour">
-          12PM
+      <div class="col-1 hour hour-12" data-hour="12">
+        12PM
       </div>
-      <div class="list-group card col-8 textarea past">
+      <div class="list-group card col-8 textarea past hour-12-color">
         <ul id="list-toDo" class="list-item">
         </ul>
       </div>
@@ -87,10 +89,10 @@
     <div class="row">
       <div class="col-1">
       </div>
-      <div class="col-1 hour">
-          1PM
+      <div class="col-1 hour hour-13" data-hour="13">
+        1PM
       </div>
-      <div class="list-group card col-8 textarea past">
+      <div class="list-group card col-8 textarea past hour-13-color">
         <ul id="list-toDo" class="list-item">
         </ul>
       </div>
@@ -103,10 +105,10 @@
     <div class="row">
       <div class="col-1">
       </div>
-      <div class="col-1 hour">
-          2PM
+      <div class="col-1 hour hour-14" data-hour="14">
+        2PM
       </div>
-      <div class="list-group card col-8 textarea past">
+      <div class="list-group card col-8 textarea past hour-14-color">
         <ul id="list-toDo" class="list-item">
         </ul>
       </div>
@@ -119,10 +121,10 @@
     <div class="row">
       <div class="col-1">
       </div>
-      <div class="col-1 hour">
-          3PM
+      <div class="col-1 hour hour-15" data-hour="15">
+        3PM
       </div>
-      <div class="list-group card col-8 textarea past">
+      <div class="list-group card col-8 textarea past hour-15-color">
         <ul id="list-toDo" class="list-item">
         </ul>
       </div>
@@ -135,10 +137,10 @@
     <div class="row">
       <div class="col-1">
       </div>
-      <div class="col-1 hour">
-          4PM
+      <div class="col-1 hour hour-16" data-hour="16">
+        4PM
       </div>
-      <div class="list-group card col-8 textarea past">
+      <div class="list-group card col-8 textarea past hour-16-color">
         <ul id="list-toDo" class="list-item">
         </ul>
       </div>
@@ -151,10 +153,10 @@
     <div class="row">
       <div class="col-1">
       </div>
-      <div class="col-1 hour">
-          5PM
+      <div class="col-1 hour hour-17" data-hour="17">
+        5PM
       </div>
-      <div class="list-group card col-8 textarea past">
+      <div class="list-group card col-8 textarea past hour-17-color">
         <ul id="list-toDo" class="list-item">
         </ul>
       </div>
@@ -168,7 +170,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
 
