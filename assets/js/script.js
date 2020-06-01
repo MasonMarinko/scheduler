@@ -10,15 +10,11 @@ $(".list-group").on('click', "ul", function () {
   // get current text
   var currentInput = $(this).text().trim();
   // create new input element
-  var UserInput = $("<input>")
+  var UserInput = $("<textarea>")
     .addClass("inputarea")
     .attr("type", "text")
     .val(currentInput);
   $(this).replaceWith(UserInput);
-});
-
-$(".list-group").on("blur", ".inputarea", function (list) {
-  debugger
 });
 
 
@@ -42,7 +38,6 @@ $('.saveBtn').on('click', function (event) {
 //======== Local Storage Recall  ======//
 
 function activateLocal(list) {
-  debugger
   for (key in list) {
     var toDoItem = $('.hour-' + key + "-color");
     toDoItem.children().text(list[key]);
