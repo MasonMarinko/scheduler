@@ -2,6 +2,7 @@ const m = moment();
 var topTimeEl = document.querySelector("#currentDay");
 var list = JSON.parse(localStorage.getItem('newUserInput')) || {};
 
+$( document ).ready(function() {
 //======== Date at Top ==============//
 topTimeEl.textContent = m.format("dddd MMM DD, YYYY")
 
@@ -68,3 +69,4 @@ checkDates();
 setInterval(function () {
   checkDates()
 }, (1000 * 60) * 30);
+});
