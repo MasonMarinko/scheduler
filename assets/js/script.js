@@ -62,6 +62,7 @@ function checkDates() {
 }
 
 activateLocal(list);
+checkDates();
 
 //=====Refresh checkDates() every 30/mins===//
 setInterval(function () {
