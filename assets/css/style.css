@@ -4,7 +4,7 @@ body {
   line-height: 1;
 }
 
-textarea{
+textarea {
   background: transparent;
   border: none;
   resize: none;
@@ -22,11 +22,11 @@ textarea{
   border-bottom: 10px solid black;
 }
 
-.description{
+.description {
   white-space: pre-wrap;
 }
 
-.time-block{
+.time-block {
   text-align: center;
   border-radius: 15px;
 }
@@ -34,7 +34,8 @@ textarea{
 .row {
   white-space: pre-line;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
+  ;
 }
 
 .hour {
@@ -84,7 +85,6 @@ textarea{
 ul {
   list-style: none;
   height: 79px;
-  width: 760px;
   padding-bottom: 0;
   padding-left: 0;
   margin-bottom: 0;
@@ -100,13 +100,17 @@ svg {
 
 .listItem {
   height: 79px;
-  width: 760px  
+  width: 760px
 }
 
 input {
   height: 79px;
   background: transparent;
   border: none;
+  display: flex;
+}
+
+.inputarea {
 }
 
 .list-group {

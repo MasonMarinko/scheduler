@@ -1,48 +1,48 @@
 const m = moment();
-var tasks = {};
 var topTimeEl = document.querySelector("#currentDay");
-var list = JSON.parse(localStorage.getItem('toDoTask')) || {};
+var list = JSON.parse(localStorage.getItem('newUserInput')) || {};
 
+//======== Date at Top ==============//
 topTimeEl.textContent = m.format("dddd MMM DD, YYYY")
 
-// due date was clicked
+//======== User selected input ======//
 $(".list-group").on('click', "ul", function () {
   // get current text
-  var userInput = $(this).text().trim();
+  var currentInput = $(this).text().trim();
   // create new input element
-  var taskInput = $("<input>")
+  var UserInput = $("<input>")
     .addClass("inputarea")
     .attr("type", "text")
-    .val(userInput);
-  $(this).replaceWith(taskInput);
+    .val(currentInput);
+  $(this).replaceWith(UserInput);
+});
+
+$(".list-group").on("blur", ".inputarea", function (list) {
+  debugger
 });
 
 
-// ===============Saving INFORMATION==================//
+//======== Button Click Save =======//
 
 $('.saveBtn').on('click', function (event) {
   event.preventDefault();
-  var toDoTask = $(this)
+  var newUserInput = $(this)
     .siblings(".textarea")
     .children()
     .val();
-  var toDoHour = $(this)
+  var activeHour = $(this)
     .siblings(".hour")
     .attr('data-hour');
-  list[toDoHour] = toDoTask
+  list[activeHour] = newUserInput
 
-  localStorage.setItem('toDoTask', JSON.stringify(list));
+  localStorage.setItem('newUserInput', JSON.stringify(list));
 
-  renderTodos(list);
 });
 
+//======== Local Storage Recall  ======//
 
-// ===============RECALLING INFORMATION==================//
-
-
-
-function renderTodos(list) {
-
+function activateLocal(list) {
+  debugger
   for (key in list) {
     var toDoItem = $('.hour-' + key + "-color");
     toDoItem.children().text(list[key]);
@@ -50,11 +50,9 @@ function renderTodos(list) {
   }
 }
 
-renderTodos(list);
-
+//===Check dates based on time, change color===//
 function checkDates() {
-
-  for (var i = 9; i < 18 ; i++) {
+  for (var i = 9; i < 18; i++) {
     var currentTime = $(".hour-" + i).data("hour");
     var momentInt = parseInt(m.format("HH"))
     $(".hour-" + i + "-color").removeClass("past present future")
@@ -68,8 +66,9 @@ function checkDates() {
   }
 }
 
+activateLocal(list);
 
-
-// setInterval(function () {
-//   timeAudit9()
-// }, (1000 * 60) * 30);
+//=====Refresh checkDates() every 30/mins===//
+setInterval(function () {
+  checkDates()
+}, (1000 * 60) * 30);
